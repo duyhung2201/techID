@@ -1,0 +1,25 @@
+PODS:
+  - ProjectOxfordFace (1.4.1)
+  - Realm (3.17.1):
+    - Realm/Headers (= 3.17.1)
+  - Realm/Headers (3.17.1)
+
+DEPENDENCIES:
+  - ProjectOxfordFace (from `../`)
+  - Realm
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Realm
+
+EXTERNAL SOURCES:
+  ProjectOxfordFace:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ProjectOxfordFace: fa7d7adbc9a11203be61a6a80511101b5dbf6ce4
+  Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
+
+PODFILE CHECKSUM: 88f3fcccca567bc3047c1aab7d724835e96e8d09
+
+COCOAPODS: 1.7.4
