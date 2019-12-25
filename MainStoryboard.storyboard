@@ -29,7 +29,7 @@
         <!--Welcome to TechID-->
         <scene sceneID="r4y-Yc-f2v">
             <objects>
-                <viewController id="cFY-th-UOk" customClass="MPOIdentificationViewController" sceneMemberID="viewController">
+                <viewController id="cFY-th-UOk" customClass="MPOMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Alu-z1-O4M"/>
                         <viewControllerLayoutGuide type="bottom" id="8h1-1F-v5v"/>

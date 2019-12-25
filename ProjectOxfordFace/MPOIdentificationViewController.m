@@ -40,7 +40,6 @@
 #import "MPOSimpleFaceCell.h"
 #import <ProjectOxfordFace/MPOFaceServiceClient.h>
 #import "MBProgressHUD.h"
-//#import "MPORealmManager.m"
 
 
 #define MAX_RESULT_COUNT 20
@@ -71,7 +70,8 @@
     _results = [[NSMutableArray alloc] init];
     _faces = [[NSMutableArray alloc] init];
 //    Test *_t = [[Test alloc] init];
-//    [_t test];
+//    [Test test];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -115,6 +115,7 @@
             for (MPOCandidate * candidate in idRestult.candidates) {
                 GroupPerson * person = [self getPersonInGroup:group withPersonId:candidate.personId];
                 [_results addObject:@{@"face" : face, @"personName": person.personName, @"confidence" : candidate.confidence}];
+                _infoBox.text = [NSString stringWithFormat: @" Student name: %@\n Student ID: %@\n Date of Birth: %@\n ", person.personName, person.personMHS, person.personDOB];
             }
         }
         
@@ -284,7 +285,7 @@
     label.textColor = [UIColor blackColor];
     [scrollView addSubview:label];
     _infoBox = [[UILabel alloc] init];
-    _infoBox.text = @" Name: Truong Viet Bach\n ID: ws11560064\n DOB: 01/06/2004\n ";
+    _infoBox.text = @"Add image you want to indentify!";
     _infoBox.left = 20;
     _infoBox.numberOfLines = 5;
     _infoBox.width = SCREEN_WIDTH - 40;
@@ -406,6 +407,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:groupCellIdentifier];
         }
+        cell.textLabel.textColor = [UIColor redColor];
         cell.textLabel.text = ((PersonGroup*)GLOBAL.groups[indexPath.row]).groupName;
         cell.backgroundColor = [UIColor clearColor];
         return cell;
@@ -414,6 +416,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:groupCellIdentifier];
         }
+        cell.textLabel.textColor = [UIColor redColor];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ : %@", _results[indexPath.row][@"personName"], _results[indexPath.row][@"confidence"]];
         cell.imageView.image = ((PersonFace*)_results[indexPath.row][@"face"]).image;
         cell.backgroundColor = [UIColor clearColor];

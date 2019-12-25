@@ -44,6 +44,8 @@
 
 @interface MPOPersonFacesController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UIAlertViewDelegate> {
     UITextField * _personNameField;
+    UITextField * _personMhsField;
+    UITextField * _personDOBField;
     UICollectionView *_facescollectionView;
     NSInteger _selectFaceIndex;
     
@@ -140,6 +142,10 @@
                 return;
             }
             self.person.personName = _personNameField.text;
+            self.person.personDOB = _personDOBField.text;
+            self.person.personMHS = _personMhsField.text;
+//            [Test updateObject:self.person.personId mhs:@"1998" name:self.person.personName dob:@"dob"];
+            
             [_facescollectionView reloadData];
         }];
     }
@@ -162,26 +168,71 @@
 }
 
 - (void)buildMainUI {
-    self.view.backgroundColor = [UIColor almondColor];
-    UILabel * label = [[UILabel alloc] init];
-    label.text = @"Person name:";
-    label.font = [UIFont systemFontOfSize:14];
-    label.textColor = [UIColor redColor];
-    label.left = 10;
-    label.top = 30;
-    [label sizeToFit];
-    [self.view addSubview:label];
+    self.view.backgroundColor = [UIColor whiteColor];
+    UILabel * labelName = [[UILabel alloc] init];
+    labelName.text = @"Student name:";
+    labelName.font = [UIFont boldSystemFontOfSize:14];
+    labelName.textColor = [UIColor redColor];
+    labelName.left = 10;
+    labelName.top = 30;
+    [labelName sizeToFit];
+    [self.view addSubview:labelName];
+    
+    UILabel * labelMhs = [[UILabel alloc] init];
+    labelMhs.text = @"Student ID:";
+    labelMhs.font = [UIFont boldSystemFontOfSize:14];
+    labelMhs.textColor = [UIColor redColor];
+    labelMhs.left = 10;
+    labelMhs.top = labelName.bottom + 20;
+    [labelMhs sizeToFit];
+    [self.view addSubview:labelMhs];
+    
+    UILabel * labelDOB = [[UILabel alloc] init];
+    labelDOB.text = @"Date of birth:";
+    labelDOB.font = [UIFont boldSystemFontOfSize:14];
+    labelDOB.textColor = [UIColor redColor];
+    labelDOB.left = 10;
+    labelDOB.top = labelMhs.bottom + 20;
+    [labelDOB sizeToFit];
+    [self.view addSubview:labelDOB];
+    
     _personNameField = [[UITextField alloc] init];
-    _personNameField.width = SCREEN_WIDTH - label.right - 20;
-    _personNameField.height = label.height * 2;
-    _personNameField.center = label.center;
-    _personNameField.left = label.right + 10;
-    _personNameField.borderStyle = UITextBorderStyleLine;
-    _personNameField.textColor = [UIColor redColor];
+    _personNameField.width = SCREEN_WIDTH - labelName.right - 20;
+    _personNameField.height = labelName.height * 2;
+    _personNameField.center = labelName.center;
+    _personNameField.left = labelName.right + 10;
+    _personNameField.borderStyle = UITextBorderStyleRoundedRect;
+    _personNameField.textColor = [UIColor blackColor];
+    _personNameField.backgroundColor = [UIColor lightGrayColor];
+    _personNameField.placeholder = @"Type your name";
+    
+    _personMhsField = [[UITextField alloc] init];
+    _personMhsField.width = SCREEN_WIDTH - labelName.right - 20;
+    _personMhsField.height = labelName.height * 2;
+    _personMhsField.center = labelMhs.center;
+    _personMhsField.left = labelName.right + 10;
+    _personMhsField.borderStyle = UITextBorderStyleRoundedRect;
+    _personMhsField.textColor = [UIColor blackColor];
+    _personMhsField.backgroundColor = [UIColor lightGrayColor];
+    _personMhsField.placeholder = @"Type your Id";
+    
+    _personDOBField = [[UITextField alloc] init];
+    _personDOBField.width = SCREEN_WIDTH - labelName.right - 20;
+    _personDOBField.height = labelName.height * 2;
+    _personDOBField.center = labelDOB.center;
+    _personDOBField.left = labelName.right + 10;
+    _personDOBField.borderStyle = UITextBorderStyleRoundedRect;
+    _personDOBField.textColor = [UIColor blackColor];
+    _personDOBField.backgroundColor = [UIColor lightGrayColor];
+    _personDOBField.placeholder = @"Type your date of birth";
     if (self.person)
         _personNameField.text = self.person.personName;
+        _personDOBField.text = self.person.personDOB;
+        _personMhsField.text = self.person.personMHS;
+    [self.view addSubview:_personDOBField];
+    [self.view addSubview:_personMhsField];
     [self.view addSubview:_personNameField];
-    
+
     UIImage * btnBackImage = [CommonUtil imageWithColor:[UIColor robinEggColor]];
     UIButton * addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton * saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -202,20 +253,20 @@
     [self.view addSubview:saveBtn];
     [self.view addSubview:addBtn];
     
-    label = [[UILabel alloc] init];
+    labelName = [[UILabel alloc] init];
 //    label.text = @"- Long press a face to delete.";
-    label.font = [UIFont systemFontOfSize:12];
-    [label sizeToFit];
-    label.bottom = addBtn.top - 10;
-    label.left = addBtn.left;
-    [self.view addSubview:label];
+    labelName.font = [UIFont systemFontOfSize:12];
+    [labelName sizeToFit];
+    labelName.bottom = addBtn.top - 10;
+    labelName.left = addBtn.left;
+    [self.view addSubview:labelName];
     
     UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
     _facescollectionView  =[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     _facescollectionView.width = SCREEN_WIDTH - 20;
-    _facescollectionView.height = label.top - _personNameField.bottom - 30;
+    _facescollectionView.height = labelName.top - _personDOBField.bottom - 30;
     _facescollectionView.left = 10;
-    _facescollectionView.top = _personNameField.bottom + 10;
+    _facescollectionView.top = _personDOBField.bottom + 10;
     _facescollectionView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
     [_facescollectionView registerNib:[UINib nibWithNibName:@"MPOPersonFaceCell" bundle:nil] forCellWithReuseIdentifier:@"faceCell"];
     _facescollectionView.dataSource = self;
@@ -255,8 +306,12 @@
             return;
         }
         self.person = [[GroupPerson alloc] init];
-        self.person.personName = _personNameField.text;
         self.person.personId = createPersonResult.personId;
+        self.person.personDOB = _personDOBField.text;
+        self.person.personMHS = _personMhsField.text;
+        self.person.personName = _personNameField.text;
+        
+//        [Test addObject:self.person.personId mhs:@"1998" name:self.person.personName dob:@"dob"];
         if (_intension == INTENSION_ADD_FACE) {
             [self chooseImage:nil];
         } else {

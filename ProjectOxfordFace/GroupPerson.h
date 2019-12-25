@@ -35,6 +35,8 @@
 
 @property (retain, nonatomic) NSString * personName;
 @property (retain, nonatomic) NSString * personId;
+@property (retain, nonatomic) NSString * personDOB;
+@property (retain, nonatomic) NSString * personMHS;
 @property (retain, nonatomic) NSMutableArray * faces;
 
 @end

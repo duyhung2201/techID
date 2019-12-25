@@ -157,7 +157,9 @@
     _groupNameField.center = label.center;
     _groupNameField.left = label.right + 10;
     _groupNameField.borderStyle = UITextBorderStyleRoundedRect;
-    _groupNameField.textColor = [UIColor systemRedColor];
+    _groupNameField.backgroundColor = [UIColor lightGrayColor];
+    _groupNameField.textColor = [UIColor blackColor];
+    _groupNameField.placeholder = @"Type group name";
     if (self.group)
         _groupNameField.text = self.group.groupName;
     [self.view addSubview:_groupNameField];

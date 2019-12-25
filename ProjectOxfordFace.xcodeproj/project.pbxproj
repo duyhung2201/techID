@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1881839E23B2C897002BD16C /* MPORealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1881839D23B2C897002BD16C /* MPORealmManager.m */; };
-		188183A423B2D54E002BD16C /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188183A323B2D54E002BD16C /* PersonModel.swift */; };
-		188183A723B2D935002BD16C /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188183A623B2D935002BD16C /* RealmManager.swift */; };
 		4C6A0B91EABA8B4017E149C3 /* Pods_ProjectOxfordFace_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F83B3BC26C7A3EF3D14D52 /* Pods_ProjectOxfordFace_Tests.framework */; };
 		50F08410AD7D895D49D6DAEC /* Pods_ProjectOxfordFace_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE558E5537FC3033395667D9 /* Pods_ProjectOxfordFace_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -87,11 +84,8 @@
 /* Begin PBXFileReference section */
 		0E49F1FE5F9E9E9B7ECCAD07 /* ProjectOxfordFace.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ProjectOxfordFace.podspec; path = ../ProjectOxfordFace.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		14D9649E7385DC1922B971FB /* Pods-ProjectOxfordFace_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOxfordFace_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOxfordFace_Tests/Pods-ProjectOxfordFace_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1881839D23B2C897002BD16C /* MPORealmManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPORealmManager.m; sourceTree = "<group>"; };
 		188183A223B2D482002BD16C /* ProjectOxfordFace-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectOxfordFace-Prefix.pch"; sourceTree = "<group>"; };
-		188183A323B2D54E002BD16C /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		188183A523B2D56B002BD16C /* ProjectOxfordFace_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectOxfordFace_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		188183A623B2D935002BD16C /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		383B8562DF4DE37999FE4619 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3A605DC677126D4E80C1EA81 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		48DF88C98C0ED6A235A8BF0E /* Pods-ProjectOxfordFace_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectOxfordFace_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectOxfordFace_Example/Pods-ProjectOxfordFace_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,8 +280,6 @@
 				EFD5E59A1C79AA7300CD8FE8 /* MainStoryboard.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				1881839D23B2C897002BD16C /* MPORealmManager.m */,
-				188183A623B2D935002BD16C /* RealmManager.swift */,
 			);
 			name = "Example for ProjectOxfordFace";
 			path = ProjectOxfordFace;
@@ -447,7 +439,6 @@
 				7B643B931D5F45190012F342 /* PersonFace.m */,
 				7B643B941D5F45190012F342 /* PersonGroup.h */,
 				7B643B951D5F45190012F342 /* PersonGroup.m */,
-				188183A323B2D54E002BD16C /* PersonModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -632,15 +623,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProjectOxfordFace_Example/Pods-ProjectOxfordFace_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ProjectOxfordFace/ProjectOxfordFace.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjectOxfordFace_Example/Pods-ProjectOxfordFace_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProjectOxfordFace.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjectOxfordFace_Example/Pods-ProjectOxfordFace_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -658,7 +646,6 @@
 				7B643BDB1D60604A0012F342 /* MPOGroupSectionHeaderView.m in Sources */,
 				6003F59E195388D20070C39A /* MPOAppDelegate.mm in Sources */,
 				7B643B961D5F45190012F342 /* GroupPerson.m in Sources */,
-				1881839E23B2C897002BD16C /* MPORealmManager.m in Sources */,
 				7B643BB21D5F452B0012F342 /* MPOPersonGroupController.m in Sources */,
 				7B643B971D5F45190012F342 /* PersonFace.m in Sources */,
 				7B643BB01D5F452B0012F342 /* MPOIdentificationViewController.m in Sources */,
@@ -677,9 +664,7 @@
 				7B643BAB1D5F452B0012F342 /* MPOMainViewController.m in Sources */,
 				7B643BC61D5F467B0012F342 /* UIImage+FixOrientation.m in Sources */,
 				7B643B811D5F44780012F342 /* ImageHelper.m in Sources */,
-				188183A723B2D935002BD16C /* RealmManager.swift in Sources */,
 				7B643B8C1D5F450F0012F342 /* MPOPersonFaceCell.m in Sources */,
-				188183A423B2D54E002BD16C /* PersonModel.swift in Sources */,
 				7B643BAC1D5F452B0012F342 /* MPODetectionViewController.m in Sources */,
 				7B643BAF1D5F452B0012F342 /* MPOSimilarFaceViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -891,7 +876,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D9649E7385DC1922B971FB /* Pods-ProjectOxfordFace_Tests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 86C6K78PD9;
@@ -918,7 +902,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6721C85774307A50E8CEE96C /* Pods-ProjectOxfordFace_Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 86C6K78PD9;
